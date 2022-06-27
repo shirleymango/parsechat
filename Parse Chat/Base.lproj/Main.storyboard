@@ -86,29 +86,39 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ChatCell" id="dd4-ao-gr3" customClass="ChatCell">
-                                        <rect key="frame" x="0.0" y="44.5" width="414" height="51"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ChatCell" rowHeight="88" id="dd4-ao-gr3" customClass="ChatCell">
+                                        <rect key="frame" x="0.0" y="44.5" width="414" height="88"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="dd4-ao-gr3" id="AaF-Rv-aGr">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="51"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="88"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="hi my name is hello kitty " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y4K-jQ-IqL">
-                                                    <rect key="frame" x="28" y="11" width="358" height="21"/>
+                                                    <rect key="frame" x="28" y="48.5" width="358" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="User" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KMM-cf-bk3">
+                                                    <rect key="frame" x="28" y="19" width="358" height="21"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="Y4K-jQ-IqL" firstAttribute="top" secondItem="KMM-cf-bk3" secondAttribute="bottom" constant="8.5" id="EmP-l7-r8u"/>
                                                 <constraint firstItem="Y4K-jQ-IqL" firstAttribute="leading" secondItem="AaF-Rv-aGr" secondAttribute="leadingMargin" constant="8" id="QvF-uX-wbQ"/>
-                                                <constraint firstItem="Y4K-jQ-IqL" firstAttribute="top" secondItem="AaF-Rv-aGr" secondAttribute="topMargin" id="Yx1-Sq-9Zj"/>
+                                                <constraint firstItem="KMM-cf-bk3" firstAttribute="leading" secondItem="AaF-Rv-aGr" secondAttribute="leadingMargin" constant="8" id="XpC-OW-zYR"/>
+                                                <constraint firstItem="KMM-cf-bk3" firstAttribute="top" secondItem="AaF-Rv-aGr" secondAttribute="topMargin" constant="8" id="gAD-G4-R3r"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="KMM-cf-bk3" secondAttribute="trailing" constant="8" id="nnv-nc-Rtj"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="Y4K-jQ-IqL" secondAttribute="bottom" constant="8" id="wl8-rs-GBr"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="Y4K-jQ-IqL" secondAttribute="trailing" constant="8" id="yQW-sc-YiH"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="chatMessage" destination="Y4K-jQ-IqL" id="t5s-rT-PQA"/>
+                                            <outlet property="chatUser" destination="KMM-cf-bk3" id="84f-hs-jJm"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
