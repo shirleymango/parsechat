@@ -149,7 +149,7 @@
         <!--Chat-->
         <scene sceneID="WSm-f8-fy1">
             <objects>
-                <navigationController title="Chat" automaticallyAdjustsScrollViewInsets="NO" modalPresentationStyle="fullScreen" id="beI-XS-POU" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="ChatNavigationController" title="Chat" automaticallyAdjustsScrollViewInsets="NO" modalPresentationStyle="fullScreen" id="beI-XS-POU" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="WlN-Qz-s16"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="b1w-EY-clE">
