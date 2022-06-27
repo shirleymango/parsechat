@@ -29,7 +29,7 @@
     newUser.username = self.usernameTextField.text;
     newUser.password = self.passwordTextField.text;
     
-    if ([username isEqual:@""]) {
+    if ([self.usernameTextField.text isEqual:@""]) {
         UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Username is empty"
                                                                                    message:@"Please fill the username text field."
                                                                             preferredStyle:(UIAlertControllerStyleAlert)];
@@ -43,7 +43,7 @@
         
         [self presentViewController:alert animated:YES completion:^{}];
     }
-    else if ([password isEqual:@""]) {
+    else if ([self.passwordTextField.text isEqual:@""]) {
         UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Password is empty"
                                                                                    message:@"Please fill the password text field."
                                                                             preferredStyle:(UIAlertControllerStyleAlert)];
