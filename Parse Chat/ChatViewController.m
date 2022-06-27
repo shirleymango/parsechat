@@ -7,9 +7,13 @@
 
 #import "ChatViewController.h"
 #import <Parse/Parse.h>
+#import "ChatCell.h"
 
-@interface ChatViewController ()
+@interface ChatViewController () <UITableViewDataSource, UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *chatMessageField;
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (nonatomic, strong) NSArray *arrayOfCells;
+
 
 @end
 
@@ -17,7 +21,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    [super viewDidLoad];
+    self.tableView.dataSource = self;
+    
+    [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(onTimer) userInfo:nil repeats:true];
+    
 }
 - (IBAction)sendText:(id)sender {
     PFObject *chatMessage = [PFObject objectWithClassName:@"Message_FBU2021"];
@@ -42,5 +50,32 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+- (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
+    ChatCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"ChatCell"];
+    cell.chatMessage.text = self.arrayOfCells[indexPath.row][@"text"];
+    return cell;
+}
+
+- (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return self.arrayOfCells.count;
+}
+
+- (void)onTimer {
+    // construct query
+    PFQuery *query = [PFQuery queryWithClassName:@"Message_FBU2021"];
+    [query orderByDescending:@"createdAt"];
+
+    // fetch data asynchronously
+    [query findObjectsInBackgroundWithBlock:^(NSArray *posts, NSError *error) {
+        if (posts != nil) {
+            // do something with the array of object returned by the call
+            self.arrayOfCells = posts;
+            [self.tableView reloadData];
+        } else {
+            NSLog(@"%@", error.localizedDescription);
+        }
+    }];
+}
 
 @end

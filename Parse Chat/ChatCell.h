@@ -1,5 +1,5 @@
 //
-//  ChatViewController.h
+//  ChatCell.h
 //  Parse Chat
 //
 //  Created by Shirley Zhu on 6/27/22.
@@ -9,7 +9,10 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface ChatViewController : UIViewController
+@interface ChatCell : UITableViewCell
+@property (weak, nonatomic) IBOutlet UILabel *chatMessage;
+
+
 @end
 
 NS_ASSUME_NONNULL_END
